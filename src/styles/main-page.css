@@ -1,0 +1,104 @@
+/* page.css */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+}
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.main-container-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+.main-container-title span{
+  color: rgb(87, 87, 243);
+}
+
+.main-container-subtitle {
+  font-size: 1.6rem;
+  color: #6b7280;
+}
+
+.cards-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  max-width: 1200px;
+}
+
+.cards-grid a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  color: white;
+  cursor: pointer;
+  padding: 1.5rem;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.footer {
+  margin-top: 4rem;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Gradient backgrounds for cards */
+.gradient-0 { background: linear-gradient(135deg, #3b82f6, #06b6d4, #14b8a6); }
+.gradient-1 { background: linear-gradient(135deg, #8b5cf6, #ec4899, #f97316); }
+.gradient-2 { background: linear-gradient(135deg, #22c55e, #10b981, #84cc16); }
+.gradient-3 { background: linear-gradient(135deg, #6366f1, #0ea5e9, #3b82f6); }
+.gradient-4 { background: linear-gradient(135deg, #f43f5e, #fb923c, #facc15); }
+.gradient-5 { background: linear-gradient(135deg, #14b8a6, #22c55e, #4ade80); }

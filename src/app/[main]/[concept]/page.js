@@ -1,12 +1,16 @@
+
+
+
+
+
 // /app/[main]/[concept]/page.js
 import React from 'react';
 import MainUIClient from '../../../components/MainUIClient';
 import { sanityClient } from '../../../lib/sanityClient';
-import { allMainConceptsQuery, mainConceptBySlugQuery, conceptBySlugQuery, allPathsQuery } from '../../../lib/queries';
+import { allMainConceptsQuery, mainConceptBySlugQuery, allPathsQuery } from '../../../lib/queries';
 
 export async function generateStaticParams() {
   const paths = await sanityClient.fetch(allPathsQuery);
-  // paths is an array [{ main: 'python', concepts: ['python-intro', 'variables'] }, ...]
   const params = [];
   for (const p of paths) {
     if (p.concepts && p.concepts.length) {
@@ -14,7 +18,6 @@ export async function generateStaticParams() {
         params.push({ main: p.main, concept: cs });
       }
     } else {
-      // if no concepts, still make a parent path (optional)
       params.push({ main: p.main, concept: '' });
     }
   }
@@ -31,18 +34,25 @@ export default async function Page({ params }) {
   // Fetch selected main's index (sidebar)
   const mainData = await sanityClient.fetch(mainConceptBySlugQuery, { slug: mainSlug });
 
-  // Fetch selected concept content
-  const conceptData = conceptSlug ? await sanityClient.fetch(conceptBySlugQuery, { slug: conceptSlug }) : null;
-
-  // Fallbacks: if user requested a main/concept pair that doesn't exist, you can handle 404
-  if (!mainData) {
-    // Return notFound or render a simple message; in App Router you can throw notFound()
-    // import { notFound } from 'next/navigation' and call notFound()
-    // For simplicity here we'll render the page with empty data
+  // Fetch selected concept content from the per-main type (e.g. 'pythonConcepts')
+  let conceptData = null;
+  if (conceptSlug) {
+    try {
+      const perType = `${mainSlug}Concepts`;
+      const q = `*[_type in $types && slug.current == $slug][0]{
+        _id, title, body, excerpt, estimatedTime, publishedAt, "slug": slug.current, _type
+      }`;
+      conceptData = await sanityClient.fetch(q, { types: [perType], slug: conceptSlug });
+    } catch (err) {
+      console.error('Error fetching concept data for', mainSlug, conceptSlug, err);
+      conceptData = null;
+    }
   }
 
+  // If mainData missing you can return notFound() from next/navigation if desired
+  // import { notFound } from 'next/navigation' and call notFound()
+
   return (
-    // We pass initial data into the client component for interactivity
     <MainUIClient
       allMainConcepts={allMainConcepts}
       initialMainSlug={mainSlug}

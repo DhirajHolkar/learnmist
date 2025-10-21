@@ -18,7 +18,7 @@ html, body {
 #__next {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh; 
 }
 .page-content {
   flex: 1;
@@ -65,7 +65,7 @@ html, body {
 }
 .post-card-link-container{
   text-decoration: none;
-  color: inherit; /* also to prevent link blue color */
+  color: inherit; 
 }
 
 .post-image {

@@ -1,69 +1,70 @@
-// // /// /app/page.js
-// // import React from 'react';
-// // import MainUI from '../components/MainUI';
-// // import { sanityClient } from '../lib/sanityClient';
-// // import { allMainConceptsQuery } from '../lib/queries';
-
-// // export default async function Page() {
-// //   // server-side fetch of available main concepts (fast, SEO-friendly)
-// //   const mainConcepts = await sanityClient.fetch(allMainConceptsQuery);
-
-// //   // default to python if available; otherwise first item
-// //   const defaultMain = mainConcepts.find(m => m.slug === 'python') || mainConcepts[0] || null;
-
-// //   return (
-// //     <html>
-// //       <body>
-// //         <MainUI initialMainConcepts={mainConcepts} defaultMainSlug={defaultMain ? defaultMain.slug : null} />
-// //       </body>
-// //     </html>
-// //   );
-// // }
-
-
-
-
-
-// // app/page.js
-// import React from 'react';
-// import MainUI from '../components/MainUI';
-// import { sanityClient } from '../lib/sanityClient';
-// import { allMainConceptsQuery } from '../lib/queries';
-
-// export default async function Page() {
-//   const mainConcepts = await sanityClient.fetch(allMainConceptsQuery);
-
-//   const defaultMain = mainConcepts.find(m => m.slug === 'python') || mainConcepts[0] || null;
-
-//   // NOTE: do NOT return <html> or <body> here — that causes hydration mismatch.
-//   return (
-//     <MainUI initialMainConcepts={mainConcepts} defaultMainSlug={defaultMain ? defaultMain.slug : null} />
-//   );
-// }
-
-
-////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
 
 
 // app/page.js
-import { redirect } from 'next/navigation';
-import { sanityClient } from '../lib/sanityClient';
-import { allMainConceptsQuery } from '../lib/queries';
+import React from "react";
+import Link from "next/link";
+import { sanityClient } from "../lib/sanityClient";
+import { allMainConceptsQuery } from "../lib/queries";
+import '../styles/main-page.css'; // import the CSS
 
 export default async function Page() {
   const mainConcepts = await sanityClient.fetch(allMainConceptsQuery);
-  const defaultMain = mainConcepts.find(m => m.slug === 'python') || mainConcepts[0];
-  const firstConcept = defaultMain && defaultMain.index && defaultMain.index.concepts && defaultMain.index.concepts[0];
 
-  if (defaultMain && firstConcept) {
-    return redirect(`/${defaultMain.slug}/${firstConcept.slug}`);
-  }
+  return (
+    <main className="main-container">
+      <header className="header">
+        <div className="main-container-title"><span>LearnMist</span> Helps You Learn Computer Science With Easy to understand Language</div>
+        <div className="main-container-subtitle">Choose a technology below to start learning</div>
+      </header>
 
-  // fallback: render a simple index if not redirecting
-  return <div style={{ padding: 24 }}>No content yet — create mainconcepts in Sanity.</div>;
+      <section className="cards-grid">
+
+        {mainConcepts.length === 0 && (
+          <div style={{ gridColumn: '1 / -1', textAlign: 'center', color: '#6b7280' }}>
+            No main concepts found. Add some in Sanity Studio.
+          </div>
+        )}
+
+        {mainConcepts.map((mc, i) => {
+          const firstConcept =
+            mc.index &&
+            Array.isArray(mc.index.concepts) &&
+            mc.index.concepts.length
+              ? mc.index.concepts[0]
+              : null;
+          const href = firstConcept
+            ? `/${mc.slug}/${firstConcept.slug}`
+            : `/${mc.slug}`;
+
+          const gradientClass = `gradient-${i % 6}`;
+
+          return (
+            <Link key={mc._id} href={href}>
+              <div className={`card ${gradientClass}`}>
+                <div className="card-overlay"></div>
+                <div>
+
+                  <h2>{mc.title}</h2>
+
+                  {/* {firstConcept && (
+                    <p>Start with: {firstConcept.title}</p>
+                  )} */}
+
+                </div>
+                <div style={{ fontSize: '1.5rem', opacity: 0.9 }}>
+                  Click to Start Learning →
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </section>
+
+      {/* <footer className="footer">
+        © {new Date().getFullYear()} Learnmist — Learn smarter.
+      </footer> */}
+
+
+    </main>
+  );
 }

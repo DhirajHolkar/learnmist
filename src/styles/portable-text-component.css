@@ -1,0 +1,102 @@
+/* Portable Text / Article styles (add to your page.css or globals.css) */
+.article-content {
+  max-width: 860px;
+  line-height: 1.75;
+  font-size: 18px;
+  color: #111827;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+/* Headings */
+.article-content .pt-heading {
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  color: #0f172a;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.article-content .pt-h1 { font-size: 3rem; }
+.article-content .pt-h2 { font-size: 3rem; }
+.article-content .pt-h3 { font-size: 3rem; }
+.article-content .pt-h4 { font-size: 2rem; }
+
+/* Paragraph */
+.article-content .pt-paragraph {
+  margin: 0.8em 0;
+  font-size: 2rem;
+  color: #374151;
+}
+
+/* Lists */
+.article-content .pt-ul,
+.article-content .pt-ol {
+  margin: 0.8em 0 0.8em 1.25rem;
+  padding: 0;
+}
+.article-content .pt-li {
+  margin: 0.45em 0;
+  font-size: 2rem;
+}
+
+/* Blockquote */
+.article-content .pt-blockquote {
+  margin: 1.1em 0;
+  padding: 0.8em 1em;
+  background: #f3f4f6;
+  border-left: 4px solid #c7d2fe;
+  color: #374151;
+  border-radius: 6px;
+}
+
+/* Inline code */
+.article-content .pt-inline-code {
+  background: #11182710;
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Segoe UI Mono", monospace;
+  font-size: 0.95em;
+}
+
+/* Code blocks */
+.article-content pre.pt-code {
+  background: #0f172a;
+  color: #e6edf3;
+  padding: 14px;
+  border-radius: 8px;
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.92rem;
+  margin: 1em 0;
+}
+
+/* Images */
+.article-content .pt-image {
+  margin: 1.2em 0;
+  text-align: center;
+}
+.article-content .pt-image img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  border-radius: 8px;
+}
+.article-content .pt-image-caption {
+  margin-top: 0.45em;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Links */
+.article-content .pt-link {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+/* Small helper */
+.article-content p + h2,
+.article-content p + h3 {
+  margin-top: 1.6rem;
+}
