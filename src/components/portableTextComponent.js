@@ -1,22 +1,85 @@
+
 // components/portableTextComponents.js
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import imageUrlBuilder from '@sanity/image-url';
 import { PortableText } from '@portabletext/react';
-// import {sanityClient as client} from '../lib/sanityClient';
- // default export or named export? adjust import if needed
-import '../styles/portable-text-component.css'
-// Ensure your sanityClient export supports createImageUrlBuilder (we used 'sanityClient' earlier).
-// If your lib/sanityClient.js exports `sanityClient`, do:
-// import { sanityClient } from '../lib/sanityClient'; and then use imageUrlBuilder(sanityClient)
-// adjust below accordingly.
-
 import { sanityClient } from '../lib/sanityClient';
+import '../styles/portable-text-component.css';
+
+// Prism theme (you can move this import into a global CSS if you prefer)
+import 'prismjs/themes/prism-tomorrow.css';
+
+// optionally import additional Prism languages on the client
+// We'll dynamically import languages inside the PrismCode component.
 
 const builder = imageUrlBuilder(sanityClient);
 
 function urlFor(source) {
   return builder.image(source).auto('format').fit('max');
+}
+
+/**
+ * PrismCode component
+ * - highlights code client-side using Prism.highlightElement
+ * - dynamically loads common languages (javascript, python, java, markup, bash, css)
+ */
+function PrismCode({ code = '', language = '' }) {
+  const codeRef = useRef(null);
+
+  useEffect(() => {
+    let mounted = true;
+    async function loadPrismAndHighlight() {
+      if (typeof window === 'undefined') return;
+
+      // Load Prism core
+      const Prism = (await import('prismjs')).default || window.Prism;
+
+      // Dynamically load common languages (add/remove as needed)
+      try {
+        // These dynamic imports are no-ops if already loaded
+        await Promise.all([
+          import('prismjs/components/prism-javascript'),
+          import('prismjs/components/prism-python'),
+          import('prismjs/components/prism-java'),
+          import('prismjs/components/prism-markup'),
+          import('prismjs/components/prism-bash'),
+          import('prismjs/components/prism-css'),
+        ]);
+      } catch (err) {
+        // ignore language load errors
+        // console.warn('Prism language load issue', err);
+      }
+
+      // Highlight
+      if (mounted && codeRef.current && Prism && Prism.highlightElement) {
+        Prism.highlightElement(codeRef.current);
+      }
+    }
+
+    loadPrismAndHighlight();
+
+    return () => { mounted = false; };
+  }, [code, language]);
+
+  const langClass = language ? `language-${language}` : 'language-none';
+
+  return (
+    <pre className="pt-code-block" style={{
+      background: '#0f172a',
+      color: '#e6edf3',
+      padding: 14,
+      borderRadius: 8,
+      overflow: 'auto',
+      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace',
+      fontSize: 14,
+      margin: '1rem 0'
+    }}>
+      <code ref={codeRef} className={langClass}>
+        {code}
+      </code>
+    </pre>
+  );
 }
 
 export const portableTextComponent = {
@@ -62,29 +125,24 @@ export const portableTextComponent = {
   // Custom types (objects)
   types: {
     image: ({ value }) => {
-      // value is the image object
       if (!value || !value.asset) return null;
       const src = urlFor(value).width(1200).url();
       const alt = value.alt || value.caption || 'Image';
       return (
         <div className="pt-image">
+          {/* using simple img tag to avoid next/image loader complexity; you can replace with <Image> if configured */}
           <img src={src} alt={alt} style={{ maxWidth: '100%', height: 'auto', borderRadius: 8 }} />
           {value.caption && <div className="pt-image-caption">{value.caption}</div>}
         </div>
       );
     },
 
-    // your custom codeBlock object type
+    // codeBlock: expects an object with { language, code } (adjust if your field names differ)
     codeBlock: ({ value }) => {
-      // value: { language, code, highlightLines }
-      const lang = value?.language || '';
-      const code = value?.code || '';
-      const hl = value?.highlightLines || '';
-      return (
-        <pre className="pt-code" data-language={lang}>
-          <code>{code}</code>
-        </pre>
-      );
+      const langRaw = value?.language || value?.lang || '';
+      const language = typeof langRaw === 'string' ? langRaw.toLowerCase() : '';
+      const code = value?.code || value?.codeString || value?.code_text || '';
+      return <PrismCode code={code} language={language} />;
     }
   }
 };
