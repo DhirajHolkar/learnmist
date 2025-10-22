@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const sanityClient = require('@sanity/client');
+const {createClient} = require('@sanity/client');
 
 // const PROJECT_ID = process.env.SANITY_PROJECT_ID || '7wv11tih'; // fallback to your project id
 // const DATASET = process.env.SANITY_DATASET || 'production';
@@ -13,14 +13,14 @@ const sanityClient = require('@sanity/client');
 
 const PROJECT_ID =  '7wv11tih'; // fallback to your project id
 const DATASET = 'production';
-const BASE_URL = 'https://learnmist.vercel.app';
+const BASE_URL = 'https://www.learnmist.com';
 
 if (!BASE_URL) {
   console.error('ERROR: BASE_URL environment variable not set. Set BASE_URL (e.g. https://example.com) and re-run.');
   process.exit(1);
 }
 
-const client = sanityClient({
+const client = createClient({
   projectId: PROJECT_ID,
   dataset: DATASET,
   useCdn: true, // use CDN for speed; content is public
@@ -126,7 +126,7 @@ function buildSitemapXml(urlEntries) {
     }
 
     const xml = buildSitemapXml(entries);
-    const outPath = path.join(process.cwd(), 'sitemap.xml');
+    const outPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
     fs.writeFileSync(outPath, xml, { encoding: 'utf8' });
     console.log(`Sitemap written to ${outPath} — contains ${entries.length} URLs`);
   } catch (err) {
