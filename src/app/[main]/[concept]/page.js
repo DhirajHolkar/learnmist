@@ -25,9 +25,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  const mainSlug = params.main;
-  const conceptSlug = params.concept;
-
+  const awaitedParams = await params;
+  const mainSlug = awaitedParams?.main;
+  const conceptSlug = awaitedParams?.concept;
   // Fetch all mains for top bar
   const allMainConcepts = await sanityClient.fetch(allMainConceptsQuery);
 
