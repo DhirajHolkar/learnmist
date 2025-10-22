@@ -75,7 +75,7 @@ export default async function Page({ params }) {
     <div style={{ padding: 40, fontFamily: 'system-ui, sans-serif' }}>
       <h1 style={{ marginBottom: 12 }}>No lessons available — {mainSlug}</h1>
       <p style={{ marginBottom: 12 }}>
-        There are currently no lessons for this topic. Please check back later or visit the <a href="/">home page</a>.
+        There are currently no lessons for this topic. Please check back later or visit the <Link href="/">home page</Link>.
       </p>
     </div>
   );
