@@ -38,6 +38,7 @@ import React from 'react';
 import { sanityClient } from '../../lib/sanityClient';
 import { mainConceptBySlugQuery } from '../../lib/queries';
 import { redirect, notFound } from 'next/navigation';
+import Link from 'next/link';
 
 export default async function Page({ params }) {
   // Next.js requires awaiting params in certain server-route contexts.
