@@ -9,12 +9,17 @@
               display: 'swap',
             });
           
+
+          export const metadata = {
+              title: 'Learn Computer Science',
+              description: 'Learn Computer Science Technologies with easy language',
+              icons:{
+                      icon:"/learnmist-icon.png",
+                    }
+          };
           // app/layout.js
           import './globals.css'; // optional: your global CSS
-          export const metadata = {
-            title: 'Tutorials',
-            description: 'Course UI'
-          };
+          
           
           export default function RootLayout({ children }) {
             return (
