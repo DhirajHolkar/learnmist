@@ -1,9 +1,4 @@
 
-
-
-
-
-
 // /lib/queries.js
 
 // Return all main concepts + their index (sidebar) — unchanged
