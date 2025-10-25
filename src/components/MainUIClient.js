@@ -1,9 +1,4 @@
 
-
-
-
-
-
 // components/MainUIClient.jsx
 'use client';
 
@@ -216,7 +211,11 @@ export default function MainUIClient({
   }
 
   return (
+
+
     <div style={{ fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial', padding: '0px 0px' }}>
+
+
       {/* Top horizontal main concepts */}
       <div style={{ display: 'flex', gap: 0, overflowX: 'auto', marginBottom: 18, borderBottom: '1px solid #e1e1e1ff' }}>
         {mainConcepts.map(mc => {
@@ -241,11 +240,16 @@ export default function MainUIClient({
         })}
       </div>
 
+
       {/* Two-column layout */}
-      <div style={{ display: 'flex', gap: 24 }}>
+      <div style={{ display: 'flex', gap: 24, justifyContent:'space-between', alignItems:'flex-start',width:'100%' }}>
+
+
         {/* Sidebar */}
         <aside style={{
-          width: 200,
+          // width: 200,
+          width:240,
+          minWidth:240,
           borderRight: '1px solid #eee',
           // paddingRight: 16
         }}>
@@ -280,8 +284,17 @@ export default function MainUIClient({
           )}
         </aside>
 
+
         {/* Content area */}
-        <main style={{ flex: 1 }}>
+        <main style={{
+          //  flex: 1 
+          flex: '0 0 900',
+          maxWidth: 900,
+          width: '100%',
+          boxSizing: 'border-box',
+          paddingLeft: 12,
+          paddingRight: 12
+           }}>
           {(isPending || (loading && content === null)) ? (
             <div style={{textAlign:'center', fontSize:20}}>Loading Course…</div>
           ) : content === null ? (
@@ -295,7 +308,43 @@ export default function MainUIClient({
             </article>
           )}
         </main>
+
+        {/* ********************* */}
+
+        {/* Right: ad / placeholder area (same width as sidebar) */}
+        <div style={{
+          width: 240,
+          minWidth: 240,
+          borderLeft: '1px solid #eee',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+
+          {/* Placeholder box for future ads */}
+
+          {/* <div style={{ 
+            width: '90%',
+            height: 360, 
+            background: '#fafafa', 
+            border: '1px dashed #e6e6e6',
+             borderRadius: 8, 
+             display: 'flex', 
+             alignItems: 'center', 
+             justifyContent: 'center', 
+             color: '#9aa0a6' 
+            }}>
+            Ad space
+          </div> */}
+        </div>
+
+        {/* ////////////////////////////////////////////////// */}
+
+
       </div>
+
     </div>
+
+
   );
 }
