@@ -5,7 +5,7 @@ import ContentArea from "../../../../components/ContentArea";
 import '../../../../styles/layout.css'
 
 export default async function LessonPage({ params }) {
-  const { subject, topic, lesson } = params
+  const { subject, topic, lesson } = await params
 
   // Sidebar lessons
   const lessons = await sanityClient.fetch(`

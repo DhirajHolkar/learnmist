@@ -10,7 +10,7 @@ import { sanityClient } from "../../../lib/sanityClient"
 
 
 export default async function TopicPage({ params }) {
-  const { subject, topic } = params
+  const { subject, topic } = await params
 
  const lessons = await sanityClient.fetch(`
   *[_type == "lesson" && topic->slug.current == $topic]

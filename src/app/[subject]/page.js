@@ -4,7 +4,7 @@ import "../../styles/layout.css"
 import "../../styles/cards.css"
 
 export default async function SubjectPage({ params }) {
-  const { subject } = params
+  const { subject } = await params;
 
   const topics = await sanityClient.fetch(`
     *[_type == "topic" && subject->slug.current == $subject]{
