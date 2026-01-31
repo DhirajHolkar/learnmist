@@ -1,0 +1,56 @@
+.sidebar-component{
+  padding: 20px;
+  font-size: 1.6rem;
+  border-right: 1px solid rgb(209, 209, 209);
+  /* border: 1px solid black; */
+}
+
+.lesson-link {
+  display: block;
+  padding: 8px 0;
+  text-decoration: none;
+  color: black;
+}
+
+.lesson-link:hover {
+  color: rgb(96, 96, 255);
+}
+
+
+.lesson-group {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lesson-group:hover {
+  color: rgb(96, 96, 255);
+}
+
+
+.concept-lessons {
+  padding-left: 20px;
+  border-left: 2px solid #e0e0e0;
+  margin-left: 5px;
+}
+
+.nested {
+  padding-left: 10px;
+}
+
+.active{
+  color: rgb(96,96,255);
+  /* font-weight: 600; */
+}
+.lesson-link.active,
+.lesson-group.active{
+  background-color: rgba(96,96,255,0.00);
+  border-radius: 4px;
+  /* padding-left: 5px; */
+}

@@ -1,17 +1,17 @@
 // /components/Footer.jsx
 import React from 'react';
 import Link from 'next/link';
-import '../styles/footer.css'
+import '../styles/Footer.css'
 
 const Footer = () => {
   return (
     <footer className='footer'>
       <p className='footer-text'>
         © {new Date().getFullYear()} learnmist.com | All rights reserved. |{' '}
-        <Link href="/about">
+        <Link href="/aboutus">
           <span className='footer-link'>About Us |</span>
         </Link>
-        <Link href="/contact">
+        <Link href="/contactus">
           <span className='footer-link'>Contact Us |</span>
         </Link>
         <Link href="/privacy-policy">
