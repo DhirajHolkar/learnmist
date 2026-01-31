@@ -1,7 +1,7 @@
 // /components/Footer.jsx
 import React from 'react';
 import Link from 'next/link';
-import '../styles/Footer.css'
+import '../styles/footer.css'
 
 const Footer = () => {
   return (
