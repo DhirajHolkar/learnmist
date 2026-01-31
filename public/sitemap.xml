@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
   <url>
-    <loc>https://www.learnmist.com/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.learnmist.com/python</loc>
-    <lastmod>2025-10-10</lastmod>
+    <loc>https://learnmist.com/computer-science/javascript/javascript-syntax</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.learnmist.com/python/python-introduction</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://learnmist.com/computer-science/javascript/javascript-input-output</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.learnmist.com/python/python-installation</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://learnmist.com/computer-science/javascript/javascript-comments</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://learnmist.com/computer-science/javascript/javascript-variables</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/javascript/javascript-introduction</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+    </urlset>
+    
