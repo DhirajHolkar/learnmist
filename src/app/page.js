@@ -12,6 +12,7 @@ export default async function Home() {
     *[_type == "subject"]{
       _id,
       title,
+      image,
       "slug": slug.current,
       description
     }
@@ -24,6 +25,7 @@ export default async function Home() {
           key={subject._id}
           title={subject.title}
           slug={subject.slug}
+          image={subject.image}
           description={subject.description}
         />
       ))}
