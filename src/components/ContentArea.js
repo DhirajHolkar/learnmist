@@ -4,7 +4,6 @@
 import { PortableText } from "@portabletext/react"
 import dynamic from "next/dynamic"
 import "../styles/content-area.css"
-import "../styles/rich-content.css"
 
 const CodeBlock = dynamic(()=>import("./CodeBlock"),{
   ssr:false

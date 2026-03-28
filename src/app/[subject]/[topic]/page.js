@@ -4,7 +4,7 @@
 import Sidebar from "../../../components/Sidebar"
 import AdSpace from "../../../components/AdSpace"
 import ContentArea from "../../../components/ContentArea"
-import "../../../styles/layout.css"
+import "../../../styles/concept-page.css"
 import { sanityClient } from "../../../lib/sanityClient"
 
 

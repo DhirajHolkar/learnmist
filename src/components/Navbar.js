@@ -3,7 +3,7 @@
 
 'use client';
 import Link from 'next/link';
-import '../styles/Navbar.css';
+import '../styles/navbar.css';
 
 export default function Navbar() {
   

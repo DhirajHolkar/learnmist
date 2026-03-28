@@ -1,7 +1,9 @@
+
+
+
 import { sanityClient } from "../../lib/sanityClient"
 import Link from "next/link"
-import "../../styles/layout.css"
-import "../../styles/cards.css"
+import "../../styles/topic-cards.css"
 import { urlFor } from "@/lib/sanityImage";
 
 export default async function SubjectPage({ params }) {
@@ -17,16 +19,19 @@ export default async function SubjectPage({ params }) {
   `, { subject })
 
   return (
-    <main className="grid">
+    <main className="topic-grid">
       {topics.map(topic => (
         <Link
           key={topic._id}
           href={`/${subject}/${topic.slug}`}
-          className="card"
+          className="topic-card"
         >
-          <div>
-          <img src={urlFor(topic.image).url()} alt={topic.title} />
-          <h2>{topic.title}</h2>
+          <div className="topic-image-wrap">
+            <img src={urlFor(topic.image).url()} alt={topic.title} className="topic-img" />
+          </div>
+          <div className="topic-body">
+            <h2 className="topic-title">{topic.title}</h2>
+            <span className="topic-arrow">→</span>
           </div>
         </Link>
       ))}

@@ -2,7 +2,7 @@ import { sanityClient } from "../../../../lib/sanityClient"
 import Sidebar from "../../../../components/Sidebar";
 import AdSpace from "../../../../components/AdSpace";
 import ContentArea from "../../../../components/ContentArea";
-import '../../../../styles/layout.css'
+import '../../../../styles/concept-page-details.css'
 
 export default async function LessonPage({ params }) {
   const { subject, topic, lesson } = await params
