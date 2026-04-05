@@ -173,18 +173,18 @@
 /* TABLES (OPTIONAL PRO)    */
 /* ============================= */
 
-.content table {
+.content-area table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
 }
 
-.content th,
-.content td {
+.content-area th,
+.content-area td {
   border: 1px solid #222;
   padding: 10px;
 }
 
-.content th {
+.content-area th {
   background: #111;
 }

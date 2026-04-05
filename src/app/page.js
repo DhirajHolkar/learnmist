@@ -27,9 +27,9 @@ export default async function Home() {
 
             <div className="hero-content">
 
-              <span className="hero-tag">Explore Subjects</span>
+              <span className="hero-tag">Explore and learn Amazon Web Services</span>
               <h1 className="hero-heading">Learn. Grow. Achieve.</h1>
-              <p className="hero-sub">Choose a subject and start your learning journey today.</p>
+              <p className="hero-sub">Choose a topic and start your cloud learning journey today.</p>
 
             </div>
             

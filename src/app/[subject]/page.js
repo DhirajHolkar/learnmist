@@ -14,7 +14,13 @@ export default async function SubjectPage({ params }) {
       _id,
       title,
       image,
-      "slug": slug.current
+      "slug": slug.current,
+
+      "firstLesson":*[
+      _type == "lesson" && 
+      topic->slug.current == ^.slug.current
+      ] | order(order asc)[0].slug.current
+
     }
   `, { subject })
 
@@ -23,7 +29,7 @@ export default async function SubjectPage({ params }) {
       {topics.map(topic => (
         <Link
           key={topic._id}
-          href={`/${subject}/${topic.slug}`}
+          href={`/${subject}/${topic.slug}/${topic.firstLesson}`}
           className="topic-card"
         >
           <div className="topic-image-wrap">

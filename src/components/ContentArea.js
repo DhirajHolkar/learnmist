@@ -21,7 +21,26 @@ const components = {
           className="lesson-image"
         />
       )
+    },
+
+
+    // ✅ ADD THIS
+    table: ({ value }) => {
+      return (
+        <table>
+          <tbody>
+            {value.rows.map((row, i) => (
+              <tr key={i}>
+                {row.cells.map((cell, j) => (
+                  <td key={j}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )
     }
+
   }
 }
 
