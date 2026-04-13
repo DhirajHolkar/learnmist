@@ -10,9 +10,11 @@ import { sanityClient } from "../../../../lib/sanityClient"
 export default async function LessonPage({ params }) {
   const { subject, topic, lesson } = await params
 
+  // && !(_id in path("drafts.**"))
   // Sidebar lessons
   const lessons = await sanityClient.fetch(`
-    *[_type == "lesson" && topic->slug.current == $topic]
+    *[_type == "lesson" && topic->slug.current == $topic
+    ]
     | order(order asc){
       _id,
       title,
@@ -27,7 +29,9 @@ export default async function LessonPage({ params }) {
   // Current lesson content
   const currentLesson = await sanityClient.fetch(`
     *[_type == "lesson" &&
-      topic->slug.current == $topic &&
+      topic->slug.current == $topic
+      && !(_id in path("drafts.**"))
+      &&
       slug.current == $lesson][0]{
         title,
         content

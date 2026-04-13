@@ -12,7 +12,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "My EdTech Platform",
+  title: "Learn Mist",
   description: "Learn Computer Science, Programming and Technology"
 }
 

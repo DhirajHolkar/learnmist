@@ -5,8 +5,11 @@ import SubjectCard from "../components/SubjectCard"
 import "../styles/subject-card.css"
 import "../styles/subject-cards-layout.css"
 export default async function Home() {
+  
+  // && !(_id in path("drafts.**"))  
   const subjects = await sanityClient.fetch(`
-    *[_type == "subject"]{
+    *[_type == "subject"
+    ]{
       _id,
       title,
       image,

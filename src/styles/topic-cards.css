@@ -1,6 +1,12 @@
 
 
 
+.group-title{
+  padding-top: 30px;
+  padding-left: 50px;
+  font-size: 30px;
+}
+
 
 
 .topic-grid {
@@ -72,6 +78,7 @@
 .topic-card:hover .topic-arrow {
   transform: translateX(4px);
 }
+
 
 @media (max-width: 900px) {
   .topic-grid {
