@@ -4,6 +4,7 @@
 import { PortableText } from "@portabletext/react"
 import dynamic from "next/dynamic"
 import "../styles/content-area.css"
+import {urlFor} from "@/lib/sanityImage"
 
 const CodeBlock = dynamic(()=>import("./CodeBlock"),{
   ssr:false
@@ -13,10 +14,9 @@ const components = {
   types: {
     code:CodeBlock,
     image: ({ value }) => {
-      const imageUrl = value.asset?.url
       return (
         <img
-          src={imageUrl}
+          src={urlFor(value).url()}
           alt="Lesson visual"
           className="lesson-image"
         />
@@ -49,7 +49,7 @@ export default function ContentArea({ lesson }) {
 
   return (
     <main className="content-area">
-      <div className="lesson-title">{lesson.title}</div>
+      {/* <div className="lesson-title">{lesson.title}</div> */}
       <PortableText
         value={lesson.content}
         components={components}
