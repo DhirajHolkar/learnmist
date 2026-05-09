@@ -72,6 +72,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://learnmist.com/computer-science/terraform/terraform-introduction</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://learnmist.com/computer-science/aws-cloud/aws-global-infrastructure</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -83,6 +88,16 @@
   </url>
   <url>
     <loc>https://learnmist.com/computer-science/cloud-computing/cloud-computing-introduction</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/terraform/terraform-configuration-files</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/aws-serivices-list</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
