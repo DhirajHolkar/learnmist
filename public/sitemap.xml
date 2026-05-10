@@ -17,12 +17,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/analytics-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://learnmist.com/computer-science/cloud-computing/cloud-compute-concepts</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://learnmist.com/computer-science/cloud-computing/cloud-service-models</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/container-related-services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -47,7 +57,37 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/application-integration-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/satellite-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://learnmist.com/computer-science/cloud-computing/cloud-networking-basics</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/end-user-computing-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/blockchain-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/business-applications-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/database-related-services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -58,6 +98,26 @@
   </url>
   <url>
     <loc>https://learnmist.com/computer-science/aws-cloud/aws-regions-and-availability-zones</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/cloud-financial-management-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/front-end-web-and-mobile-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/game-development-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/customer-enablement-related-services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -97,7 +157,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://learnmist.com/computer-science/aws-services-list/aws-serivices-list</loc>
+    <loc>https://learnmist.com/computer-science/aws-services-list/compute-related-services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -107,7 +167,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/quantum-technologies-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://learnmist.com/computer-science/cloud-computing/cloud-architecture-basics</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/storage-related-services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -122,7 +192,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/migration-and-transfer-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/internet-of-things-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://learnmist.com/computer-science/aws-cloud/how-to-open-a-free-aws-account</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/management-and-governance-related-services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -132,12 +217,37 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/developer-tools-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/security-identity-and-compliance-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://learnmist.com/computer-science/cloud-computing/cloud-storage-basics</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/machine-learning-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/media-services-related-services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://learnmist.com/computer-science/cloud-computing/cloud-computing-physical-infrastructure-era</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://learnmist.com/computer-science/aws-services-list/networking-and-content-delivery-related-services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
