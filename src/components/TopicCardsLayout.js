@@ -5,28 +5,71 @@ import { sanityClient } from "../lib/sanityClient";
 import { urlFor } from "@/lib/sanityImage";
 import "../styles/topic-cards.css";
 
-export default async function TopicCardsLayout({ subject }) {
+export default async function TopicCardsLayout({ topicCategory }) {
 
 
-const groups = await sanityClient.fetch(`
-  *[_type == "topicGroup" && subject->slug.current == $subject] 
+// const groups = await sanityClient.fetch(`
+
+  // *[
+  // _type == "topicCategory" &&
+  //  slug.current == $topicCategory
+  //  ] 
+  // | order(order asc) {
+  //   _id,
+  //   title,
+
+  //   "topics": *[
+  //     _type == "topic" && 
+  //     references(^._id)
+
+  //   ]
+      
+  //   | order(order asc){
+  //     _id,
+  //     title,
+  //     image,
+  //     "slug": slug.current,
+
+  //     "firstLesson": *[
+  //       _type == "lesson" && 
+  //       topic._ref == ^._id
+  //     ]
+  //     | order(order asc)[0].slug.current
+  //   }
+  // }
+// `, { topicCategory });
+
+
+
+  const groups = await sanityClient.fetch(`
+  *[
+    _type == "topicSubCategory" &&
+    topicCategoryLink->slug.current == $topicCategory
+  ]
   | order(order asc) {
+
     _id,
     title,
+
     "topics": *[
-      _type == "topic" && 
-      references(^._id)
-    ] | order(order asc){
+      _type == "topic" &&
+      subCategory._ref == ^._id
+    ]
+    | order(order asc) {
+
       _id,
       title,
       image,
       "slug": slug.current,
+
       "firstLesson": *[
-        _type == "lesson" && topic._ref == ^._id
-      ] | order(order asc)[0].slug.current
+        _type == "lesson" &&
+        topic._ref == ^._id
+      ]
+      | order(order asc)[0].slug.current
     }
   }
-`, { subject });
+`, { topicCategory });
 
 
 
@@ -41,11 +84,15 @@ const groups = await sanityClient.fetch(`
           {group.title}
         </div>
 
+
+
+
+
         <main className="topic-grid">
         {group.topics.map((topic) => (
         <Link
           key={topic._id}
-          href={`/${subject}/${topic.slug}/${topic.firstLesson}`}
+          href={`/${topic.slug}/${topic.firstLesson}`}
           className="topic-card"
         >
           <div className="topic-image-wrap">

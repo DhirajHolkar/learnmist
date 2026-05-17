@@ -1,8 +1,9 @@
 
 
 // import SubjectCardsLayout from "../components/SubjectCardsLayout"
+import TopicCategoryCardsLayout from "@/components/TopicCategoryCardsLayout"
 import Banner from "../components/Banner"
-import TopicCardsLayout from "@/components/TopicCardsLayout"
+// import TopicCardsLayout from "@/components/TopicCardsLayout"
 
 
 export default async function Home() {
@@ -18,7 +19,9 @@ export default async function Home() {
       {/* <SubjectCardsLayout/> */}
 
       {/* topic cards section */}
-      <TopicCardsLayout subject={'computer-science'} />;
+      {/* <TopicCardsLayout subject={'computer-science'} />; */}
+
+      <TopicCategoryCardsLayout subject={'computer-science'}/>
 
     </>
   )

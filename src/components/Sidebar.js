@@ -8,7 +8,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 
-export default function Sidebar({ lessons, subject, topic }) {
+export default function Sidebar({ lessons, topic }) {
   const pathname = usePathname()
   const currentSlug = pathname.split("/").pop()
 
@@ -73,7 +73,7 @@ export default function Sidebar({ lessons, subject, topic }) {
               </button>
             ) : (
               <Link
-                href={`/${subject}/${topic}/${parent.slug}`}
+                href={`/${topic}/${parent.slug}`}
                 className={`lesson-link ${parentActive ? "active" : ""}`}
               >
                 {parent.title}
@@ -85,7 +85,7 @@ export default function Sidebar({ lessons, subject, topic }) {
                 {children.map(child => (
                   <Link
                     key={child._id}
-                    href={`/${subject}/${topic}/${child.slug}`}
+                    href={`/${topic}/${child.slug}`}
                     className={`lesson-link nested ${
                       isActive(child.slug) ? "active" : ""
                     }`}
