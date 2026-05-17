@@ -22,7 +22,7 @@ export default async function TopicCategoryCardsLayout({ subject }) {
       {categories.map((category) => (
         <Link
           key={category._id}
-          href={`/categories/${category.slug}`}
+          href={`/${subject}/categories/${category.slug}`}
           className="topic-card"
         >
 

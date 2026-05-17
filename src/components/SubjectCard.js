@@ -2,7 +2,7 @@
 
 
 import Link from "next/link"
-import "../styles/subject-card.css"
+import "@/styles/subject-card.css"
 import { urlFor } from "@/lib/sanityImage"
 
 export default function SubjectCard({ title, slug, image, description }) {

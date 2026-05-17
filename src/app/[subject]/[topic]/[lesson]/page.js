@@ -1,16 +1,15 @@
 
 
 
-
-import Sidebar from "../../../components/Sidebar";
-import AdSpace from "../../../components/AdSpace";
-import ContentArea from "../../../components/ContentArea";
-import '../../../styles/concept-page-details.css'
-import { sanityClient } from "../../../lib/sanityClient"
+import Sidebar from "@/components/Sidebar";
+import AdSpace from "@/components/AdSpace";
+import ContentArea from "@/components/ContentArea";
+import '@/styles/concept-page-details.css'
+import { sanityClient } from "@/lib/sanityClient"
 
 export default async function LessonPage({ params }) {
-  // const { subject, topic, lesson } = await params
-  const {  topic, lesson } = await params
+  const { subject, topic, lesson } = await params
+  // const {  topic, lesson } = await params
 
   // && !(_id in path("drafts.**"))
   // Sidebar lessons
@@ -44,7 +43,7 @@ export default async function LessonPage({ params }) {
 
         <div className="layout">
           <aside className="sidebar">
-            <Sidebar lessons={lessons} topic={topic} />
+            <Sidebar lessons={lessons} topic={topic} subject={subject} />
           </aside>
     
           <main className="content">
